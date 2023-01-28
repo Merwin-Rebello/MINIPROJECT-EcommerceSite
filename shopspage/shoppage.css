@@ -45,10 +45,78 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 22px;
+   
     background-color: rgb(237, 206, 81);
     color: white;
 }
+
+.box1{
+    background-color: rgb(250, 250, 252);
+    height:250px;
+    /*width: 100%; */
+    display:grid;
+    margin-top: 25px;
+    /* padding-top: 30px; */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    column-gap: 10px;
+    justify-items: center;
+    margin-bottom: 25px;
+   
+   }
+   .item{
+    background-color: rgba(117, 145, 250, 0.881);
+    height:280px;
+     width:180px; 
+    /* border-radius: 10px; */
+    
+   }
+   img{
+    height:125px;
+    width: 100px;
+    object-fit: cover;
+   }
+
+p{
+    text-align: center;
+}
+.btn {
+    justify-content: center;
+    padding-left: 3px;
+}
+
+.photo1{
+    height:125px;
+    width: 100px;
+    background-color:rgba(117, 145, 250, 0.881) ;
+     justify-content: center;
+    padding:10px 5px;
+    margin:10px 50px; 
+   }
+
+.photo2{
+    height:125px;
+    width: 100px;
+        background-color:rgba(117, 145, 250, 0.881);
+        justify-content: center;
+        padding:10px 5px;
+        margin:10px 50px;
+       }
+       
+          
+.photo3{
+    height:125px;
+    width: 100px;
+        background-color: rgba(117, 145, 250, 0.881);
+        justify-content: center;
+        padding:10px 5px;
+        margin:10px 50px;
+    
+   
+       } 
+
+
+
 .container{
     display: flex;
     width: 70%;
@@ -118,8 +186,8 @@ body{
     height: 110px;
 }
 h2{
-    font-size: 20px;
-    color: red;
+    font-size: 15px;
+    color: rgb(73, 186, 223);
 }
 button{
     width: 100%;
