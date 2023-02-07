@@ -43,4 +43,4 @@ def register(request):
         else:
             messages.info(request,'Password Not Same')
             return redirect('index')
-    return render(request,'login.html')
+    return render(request,'register.html')
