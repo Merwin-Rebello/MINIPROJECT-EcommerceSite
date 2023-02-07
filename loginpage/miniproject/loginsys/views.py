@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from .models import feats
+
 
 # Create your views here.
 # def index(request):
@@ -38,7 +38,7 @@ def register(request):
             else:
                 user=User.objects.create_user(username=username,email=email,password=password)  
                 key=0 
-                user.save();
+                user.save()
             # return render(request,'login.html',{'feature':list,"key":key,'key2':1})
         else:
             messages.info(request,'Password Not Same')
