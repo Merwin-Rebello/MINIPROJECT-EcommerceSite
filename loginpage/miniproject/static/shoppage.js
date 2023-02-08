@@ -1,7 +1,7 @@
 const product = [
     {
         id: 0,
-        image: 'images/popstick.jpg',
+        image: '{% static 'assets/popstick.jpg' %}',
         title: 'Desi Popz',
         price: 120,
     },
