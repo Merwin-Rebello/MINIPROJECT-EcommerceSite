@@ -52,3 +52,9 @@ def index ( request):
 
 def shop(request):
     return render(request,'shoppage.html')
+
+def baking(request):
+    return render(request,'bakingoods.html')
+
+def snacks(request):
+    return render(request,'snacks.html')
