@@ -58,3 +58,12 @@ def baking(request):
 
 def snacks(request):
     return render(request,'snacks.html')
+
+def dairy(request):
+    return render(request,'dairy.html')
+
+def healthcare(request):
+    return render(request,'health&care.html')
+
+def frutisveg(request):
+    return render(request,'fruitsveg.html')
