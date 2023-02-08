@@ -16,7 +16,7 @@ def login(request):
         user=auth.authenticate(username=username,password=password)
         if user is not None:
             auth.login(request,user)
-            return render(request,'login.html',{'text':'sucessfully logged in'})
+            return render(request,'index.html',{'name':username})
         else:
             return render(request,'login.html',{'text':' SORRRY!! cannot login'})
     return render(request,'login.html')
@@ -39,8 +39,16 @@ def register(request):
                 user=User.objects.create_user(username=username,email=email,password=password)  
                 key=0 
                 user.save()
-            # return render(request,'login.html',{'feature':list,"key":key,'key2':1})
+                user1=auth.authenticate(username=username,password=password)
+                auth.login(request,user1)
+                return render(request,'index.html',{'name':username})
         else:
             messages.info(request,'Password Not Same')
             return redirect('index')
     return render(request,'register.html')
+
+def index ( request):
+    return render(request,'index.html')
+
+def shop(request):
+    return render(request,'shoppage.html')
