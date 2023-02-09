@@ -67,3 +67,6 @@ def healthcare(request):
 
 def frutisveg(request):
     return render(request,'fruitsveg.html')
+
+def contact(request):
+    return render(request,'contact.html')

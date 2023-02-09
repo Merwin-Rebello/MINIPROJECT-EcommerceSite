@@ -11,4 +11,5 @@ urlpatterns=[
     path('dairy',views.dairy,name="dairy"),
     path('health&care',views.healthcare,name="health&care"),
     path('fruitsveg',views.frutisveg,name="fruitsveg"),
+    path('contact',views.contact,name="contact"),
 ]
