@@ -12,4 +12,5 @@ urlpatterns=[
     path('health&care',views.healthcare,name="health&care"),
     path('fruitsveg',views.frutisveg,name="fruitsveg"),
     path('contact',views.contact,name="contact"),
+    path('home',views.index,name="home"),
 ]
