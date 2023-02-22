@@ -71,5 +71,6 @@ def frutisveg(request):
 def contact(request):
     return render(request,'contact.html')
 
-# def home(request):
-#     return render(request,'index.html')
+def logout(request):
+    auth.logout(request)
+    return render(request,'index.html')

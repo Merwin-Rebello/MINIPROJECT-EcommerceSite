@@ -13,4 +13,5 @@ urlpatterns=[
     path('fruitsveg',views.frutisveg,name="fruitsveg"),
     path('contact',views.contact,name="contact"),
     path('home',views.index,name="home"),
+    path('logout',views.logout,name='logout')
 ]
