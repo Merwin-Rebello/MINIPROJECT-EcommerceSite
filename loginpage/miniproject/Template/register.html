@@ -20,6 +20,9 @@
 </head>
 <body>
     <h5>Please register your self first</h5>
+    {% if error %}
+    <h1 style="color:red">{{error}}</h1>
+    {% endif %}
     <hr>
     <form class="form-subscribe" id="contactFormFooter" method="post" action="register">
         {% csrf_token %}

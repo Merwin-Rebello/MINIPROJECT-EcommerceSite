@@ -31,10 +31,10 @@ def register(request):
         if (password==password2):
             if User.objects.filter(username=username).exists():
                 messages.info(request,'Username Already Used')
-                return redirect('index')        
+                return render(request,'register.html',{'error':"Account already exists"})
             elif User.objects.filter(email=email).exists():
                 messages.info(request,'Email Already Used')
-                return redirect('index')
+                return redirect('register')
             else:
                 user=User.objects.create_user(username=username,email=email,password=password)  
                 key=0 
