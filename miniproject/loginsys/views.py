@@ -52,28 +52,6 @@ def index ( request):
 
     return render(request,'index.html')
 
-def shop(request):
-    return render(request,'shoppage.html')
-
-def baking(request):
-    return render(request,'bakingoods.html')
-
-def snacks(request):
-    return render(request,'snacks.html')
-
-def dairy(request):
-    a=product.objects.all()
-    return render(request,'dairy.html',{'objects':a})
-
-def healthcare(request):
-    return render(request,'health&care.html')
-
-def frutisveg(request):
-    return render(request,'fruitsveg.html')
-
-def contact(request):
-    return render(request,'contact.html')
-
 def logout(request):
     auth.logout(request)
     return render(request,'index.html')
