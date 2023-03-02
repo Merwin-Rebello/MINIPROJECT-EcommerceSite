@@ -1,0 +1,267 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>miniproject</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+    <header class="section-header">
+        <section class="header-main border-bottom">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-sm-4 col-md-4 col-5"> <a href="#" class="brand-wrap" data-abc="true">
+                            <!-- <img class="logo" src="http://ampexamples.com/data/upload/2017/08/bootstrap2_logo.png"> --> <span class="logo">Welcome {% if user.is_authenticated %}{{name}}{% endif %}</span> </a> </div>
+                    <div class="col-lg-4 col-xl-5 col-sm-8 col-md-4 d-none d-md-block">
+                        <!-- <form action="#" class="search-wrap">
+                            <div class="input-group w-100"> <input type="text" class="form-control search-form" style="width:55%;" placeholder="Search">
+                                <div class="input-group-append"> <button class="btn btn-primary search-button" type="submit"> <i class="fa fa-search"></i> </button> </div>
+                            </div>
+                        </form> -->
+                    </div>
+                    <div class="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-7">
+                        <div class="d-flex justify-content-end">
+                             <a target="_blank" href="#" data-abc="true" class="nav-link widget-header"> <i class="bi bi-cart"></i></a>
+                                 
+                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" id="cartpic" class="bi bi-cart" viewBox="0 0 16 16">
+                                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                 </svg>
+                                 
+            
+                           <span class="vl"></span>
+                            <div class="dropdown btn-group"> <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-abc="true"><i class="fas fa fa-bell"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                    <li>
+                                        <div class="notification-title">More Info</div>
+                                        <div class="notification-list">
+                                            <div class="list-group"> <a href="affiliates" class="list-group-item list-group-item-action active" data-abc="true">
+ 
+                                                </a> <a href="redemption-center" class="list-group-item list-group-item-action active" data-abc="true">
+
+                                                </a> <a href="#" class="list-group-item list-group-item-action active" data-abc="true">
+ 
+                                                </a> <a href="#" class="list-group-item list-group-item-action active" data-abc="true">
+
+                                                </a> </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                
+                                <a class="nav-link nav-user-img" href="/register" data-toggle="modal" data-target="#login-modal" data-abc="true"><span class="login">Register</span></a>
+                                {% if user.is_authenticated %}
+                                <a class="nav-link nav-user-img" href="logout" data-toggle="modal" data-target="#login-modal" data-abc="true"><span class="login">LOGOUT</span></a>
+                                {% else %}
+                            </div> <span class="vl"></span> <a class="nav-link nav-user-img" href="/login" data-toggle="modal" data-target="#login-modal" data-abc="true"><span class="login">LOGIN</span></a>
+                                {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <nav class="navbar navbar-expand-md navbar-main border-bottom">
+            <div class="container-fluid">
+                <form class="d-md-none my-2">
+                    <div class="input-group"> <input type="search" name="search" class="form-control" placeholder="Search" required="">
+                        <div class="input-group-append"> <button type="submit" class="btn btn-secondary"> <i class="fa fa-search"></i> </button> </div>
+                    </div>
+                </form> <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#dropdown6" aria-expanded="false"> <span class="navbar-toggler-icon"></span> </button>
+                <div class="navbar-collapse collapse" id="dropdown6" style="display:inline-block;">
+                    <ul class="navbar-nav mr-auto">
+                        <!-- <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" data-abc="true" aria-expanded="false">Laptops</a>
+                            <div class="dropdown-menu"> <a class="dropdown-item" href="" data-abc="true">Lenovo</a> <a class="dropdown-item" href="" data-abc="true">Dell</a> <a class="dropdown-item" href="" data-abc="true">HP</a> <a class="dropdown-item" href="" data-abc="true">Apple</a> </div>
+                        </li> -->
+                        <li class="nav-item"> <a class="nav-link" href="index" data-abc="true">HOME</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="shoppage" data-abc="true">SHOP</a> </li>
+                        <!-- <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Blog</a> </li> -->
+                        <li class="nav-item"> <a class="nav-link" href="contact" data-abc="true">Contact</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- HOME PAGE -->
+    <!-- <div class="filter">
+        <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#mobile-filter" aria-expanded="false" aria-controls="mobile-filter">Filters<span class="fa fa-filter pl-1"></span></button>
+    </div> -->
+    <div id="mobile-filter">
+        <div>
+            <h6 class="p-1 border-bottom">ALL DEPARTMENTS</h6>
+            <ul>
+                <li><a href="category/bakingoods">Baking Goods</a></li>
+                <li><a href="category/snacks">Snacks</a></li>
+                <li><a href="category/dairy">Dairy</a></li>
+                <li><a href="category/health&care">Health and Care</a></li>
+                <li><a href="category/fruitsveg">Fruits&Veg</a></li>
+            </ul>
+        </div>
+        </div> 
+    </div>
+    <section id="sidebar">
+        <div>
+            <h6 class="p-1 border-bottom">ALL DEPARTMENTS</h6>
+            <ul>
+                <li><a href="category/bakingoods">Baking Goods</a></li>
+                <li><a href="category/snacks">Snacks</a></li>
+                <li><a href="category/dairy">Dairy</a></li>
+                <li><a href="category/health&care">Health and Care</a></li>
+                <li><a href="category/fruitsveg">Fruits&Veg</a></li>
+            </ul>
+        </div>
+
+    </section>
+    <section id="products">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-4 col-11 offset-sm-0 offset-1">
+                <div class="card">
+                    <img class="card-img-top" src="{% static 'assets/popstick.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Desi Popz</p>
+                      <p>Rs.90</p>
+                      <button onclick="addtocart()"  type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+        
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 offset-lg-0 col-sm-4 offset-sm-2 col-11 offset-1">
+                <div class="card">
+                    <img class="card-img-top" src="{% static 'assets/cheddarcrispcs.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Whips-Chesse crips</p>
+                      <p>Rs.125</p>
+                      <button onclick="addtocart()" type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+     
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 col-sm-4 col-11 offset-sm-0 offset-1">
+                <div class="card">
+                    <img class="card-img-top" src="{% static 'assets/vitamin.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">INLIFE VITAMIN D3</p>
+                      <p>Rs950</p>
+                      <button onclick="addtocart()" type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                    </div>
+                  </div> 
+            </div>
+            <div class="col-lg-3 col-sm-4 offset-lg-0 offset-sm-2 col-11 offset-1">
+                <div class="card">
+                    <img class="card-img-top" src="{% static 'assets/wowshampoo.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">WOW -shampoo</p>
+                      <p>Rs390</p>
+                      <button onclick="addtocart()" type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-3 col-sm-4 col-11 offset-sm-0 offset-1">
+                <div class="card">
+                    <img class="card-img-top" src="{% static 'assets/mamaearth.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">MamaEarth</p>
+                      <p>Rs550</p>
+                      <button onclick="addtocart()" type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 col-sm-4 offset-lg-0 offset-sm-2 col-11 offset-1">
+                <div class="card">
+                    <img class="card-img-top" src="{% static 'assets/milkshake.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Rude health almond drink organic</p>
+                      <p>Rs40</p>
+                      <button onclick="addtocart()" type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 col-sm-4 col-11 offset-sm-0 offset-1">
+                <div class="card" id="special">
+                    <img class="card-img-top" src="{% static 'assets/gooddiet-20g-whey-protein-bar-double-chocolate-caramel.webp' %}" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Gooddiet-20g-whey-protein-bar-double-chocolate-caramel</p>
+                      <p>Rs35</p>
+                      <button onclick="addtocart()" type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 col-sm-4 offset-lg-0 offset-sm-2 col-11 offset-1">
+                <div class="card">
+                    <img class="card-img-top" src="{% static 'assets/cheseit.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Cheez-IT</p>
+                      <p>Rs100</p>
+                      <button onclick="addtocart()" type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+
+<section>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class ="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Affiliate Program</a></li>
+                </ul>
+            </div>
+            <div class ="footer-col">
+                <h4>Get help</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Order status</a></li>
+                    <!-- <li><a href="#">Payment Options</a></li> -->
+                </ul>
+            </div>
+            <div class ="footer-col">
+                <h4>Online shop</h4>
+                <ul>
+                    <li><a href="bakingoods">Backing Goods</a></li>
+                    <li><a href="snacks">Snacks</a></li>
+                    <li><a href="dairy">Dairy</a></li>
+                    <li><a href="health&care">Health and Care</a></li>
+                    <li><a href="fruitsveg">Fruits&Veg</a></li>
+                </ul>
+            </div>
+            <div class ="footer-col">
+                <h4>Follow us</h4>
+                <div class="social-links">
+                   <a href="#"><i class="fab fa-facebook-f"></i></a>
+                   <a href="#"><i class="fab fa-twitter"></i></a>
+                   <a href="#"><i class="fab fa-instagram"></i></a>
+                   <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+</section>
+</body>
+<script >
+    function addtocart(){
+        window.location.href="http://127.0.0.1:5555/shopspage/shoppage.html"
+    }
+
+</script>
+</html>
