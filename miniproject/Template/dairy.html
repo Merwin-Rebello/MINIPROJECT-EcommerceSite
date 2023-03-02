@@ -1,0 +1,277 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy Products</title>
+    <link rel="stylesheet" href="{% static 'dairy.css' %}">
+    <script src="{% static 'dairy.js' %}"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <h1>DAIRY PRODUCTS</h1>
+    <hr>
+    <div class="container">
+        <div class="row">
+        {% for item in objects %}
+        
+            <div class="col-md-4 mt-2">  
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-img-actions">
+                            
+                            <img src= "/productimages/{{item.image.url}}" class="card-img img-fluid" width="96" height="350" alt="/">
+                            
+                        </div>
+                    </div>
+                    
+                <div class="card-body bg-light text-center">
+                    <div class="mb-2">
+                        <h6 class="font-weight-semibold mb-2">
+                            <a href="#" class="text-default mb-2" data-abc="true">{{item.name}}</a>
+                        </h6>
+                        
+                        <a href="#" class="text-muted" data-abc="true"></a>
+                    </div>
+                    
+                    <h3 class="mb-0 font-weight-semibold">{{item.price}}</h3>
+                    
+                    <div>
+                        <i class="fa fa-star star"></i>
+                        <i class="fa fa-star star"></i>
+                        <i class="fa fa-star star"></i>
+                        
+                                        <i class="fa fa-star star"></i>
+                                     </div>
+
+                                     <div class="text-muted mb-3">34 reviews</div>
+
+                                     <button  onclick="addtocart()" type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+    
+                                </div>
+                            </div>
+                        </div>
+                            {% endfor %}
+                        
+                    </div>
+
+                </div>               
+             <div class="container">
+                
+                             
+
+
+           <!-- <div class="col-md-4 mt-2">
+            
+                
+                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-img-actions">
+                                            
+                                                <img src="{% static 'assets/chessespreadamul.jpeg' %}" class="card-img img-fluid" width="96" height="350" alt="">
+                                              
+                                           
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body bg-light text-center">
+                                        <div class="mb-2">
+                                            <h6 class="font-weight-semibold mb-2">
+                                                <a href="#" class="text-default mb-2" data-abc="true">AMUL Chesse spread</a>
+                                            </h6>
+
+                                            <a href="#" class="text-muted" data-abc="true">Regular fat</a>
+                                        </div>
+
+                                        <h3 class="mb-0 font-weight-semibold">Rs299.99</h3>
+
+                                        <div>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                        </div>
+
+                                        <div class="text-muted mb-3">25 reviews</div>
+
+                                        <button onclick="addtocart()" type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+
+                                        
+                                    </div>
+                                </div> -->
+
+
+                            
+                             
+            <!-- </div>  -->
+
+           <!-- <div class="col-md-4 mt-2">
+            
+                
+                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-img-actions">
+                                            
+                                                <img src="{%  static 'assets/youghurt.jpeg' %}" class="card-img img-fluid" width="96" height="350" alt="">
+                                              
+                                           
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body bg-light text-center">
+                                        <div class="mb-2">
+                                            <h6 class="font-weight-semibold mb-2">
+                                                <a href="#" class="text-default mb-2" data-abc="true">Youghurt</a>
+                                            </h6>
+
+                                            <a href="#" class="text-muted" data-abc="true">LOW FAT</a>
+                                        </div>
+
+                                        <h3 class="mb-0 font-weight-semibold">Rs250.00</h3>
+
+                                        <div>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                           <!-- <i class="fa fa-star star"></i> -->
+                                        <!-- </div>
+
+                                        <div class="text-muted mb-3">30 reviews</div>
+
+                                        <button onclick="addtocart()" type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+
+                                        
+                                    </div>
+                                </div>             --> -->
+           <!-- </div> 
+           <div class="col-md-4 mt-2">
+            
+                
+                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-img-actions">
+                                            
+                                                <img src="{% static 'assets/butterspread.jpg' %}" class="card-img img-fluid" width="96" height="350" alt="">
+                                              
+                                           
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body bg-light text-center">
+                                        <div class="mb-2">
+                                            <h6 class="font-weight-semibold mb-2">
+                                                <a href="#" class="text-default mb-2" data-abc="true">AMUL BUTTER Spread</a>
+                                            </h6>
+
+                                            <a href="#" class="text-muted" data-abc="true">Regular Fat</a>
+                                        </div>
+
+                                        <h3 class="mb-0 font-weight-semibold">Rs250.99</h3>
+
+                                        <div>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+
+                                        </div>
+
+                                        <div class="text-muted mb-3">34 reviews</div>
+
+                                        <button  onclick="addtocart()"type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+
+                                        
+                                    </div>
+                                </div>             
+           </div> 
+           <div class="col-md-4 mt-2">
+            
+                
+                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-img-actions">
+                                            
+                                                <img src="{% static 'assets/cheeseslices.jpg' %}" class="card-img img-fluid" width="96" height="350" alt="">
+                                              
+                                           
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body bg-light text-center">
+                                        <div class="mb-2">
+                                            <h6 class="font-weight-semibold mb-2">
+                                                <a href="#" class="text-default mb-2" data-abc="true">Cheese slices</a>
+                                            </h6>
+
+                                            <a href="#" class="text-muted" data-abc="true">Low Fat</a>
+                                        </div>
+
+                                        <h3 class="mb-0 font-weight-semibold">Rs300</h3>
+
+                                        <div>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                        </div>
+
+                                        <div class="text-muted mb-3">25 reviews</div>
+
+                                        <button onclick="addtocart()" type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                                    </div>
+                                </div>                
+           </div> 
+           <div class="col-md-4 mt-2">
+                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-img-actions">
+                                            
+                                                <img src="{% static 'assets/amul-taazamilk.png' %}" class="card-img img-fluid" width="96" height="350" alt="">
+                                              
+                                           
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body bg-light text-center">
+                                        <div class="mb-2">
+                                            <h6 class="font-weight-semibold mb-2">
+                                                <a href="#" class="text-default mb-2" data-abc="true">AMUL TAZA-MILK</a>
+                                            </h6>
+
+                                            <a href="#" class="text-muted" data-abc="true">LOW FAT</a>
+                                        </div>
+
+                                        <h3 class="mb-0 font-weight-semibold">Rs.62/litre</h3>
+
+                                        <div>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                           <i class="fa fa-star star"></i>
+                                        </div>
+
+                                        <div class="text-muted mb-3">35 reviews</div>
+
+                                        <button onclick="addtocart()"type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+
+                                        
+                                    </div>
+                                </div>            -->
+           </div> 
+        </div>
+    </div>
+</body>
+<script >
+    function addtocart(){
+        window.location.href=window.location.href.toString()+"shoppage"
+    }
+
+</script>
+</html>

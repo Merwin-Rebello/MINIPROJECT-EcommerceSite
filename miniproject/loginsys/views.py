@@ -52,14 +52,6 @@ def index ( request):
 
     return render(request,'index.html')
 
-def category(request,value):
-    print(value)
-    # a=product.objects.all()
-    # print(a[0].image)
-    a=product.objects.filter(category=value)
-    return render(request,'category.html',{'objects':a,'category':value.capitalize()})
-
-
 def logout(request):
     auth.logout(request)
     return render(request,'index.html')
