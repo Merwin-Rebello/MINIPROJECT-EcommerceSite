@@ -16,58 +16,57 @@
 <body>
     <h1>DAIRY PRODUCTS</h1>
     <hr>
-    {% for object in objects %}
-    <img src={{object.image.url}} alt=""/>
-    {% endfor %}
-    <div class="container d-flex justify-content-center mt-50 mb-50">
-            
+    <div class="container">
         <div class="row">
-           <div class="col-md-4 mt-2">
-            
-                
+        {% for item in objects %}
+        
+            <div class="col-md-4 mt-2">  
                 <div class="card">
-                                    <div class="card-body">
-                                        <div class="card-img-actions">
-                                            
-                                                <img src="{% static 'assets/mori-nu-silken-tofu-firm-2c-349-grams-500x500.jpg' %}" class="card-img img-fluid" width="96" height="350" alt="">
-                                              
-                                           
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body bg-light text-center">
-                                        <div class="mb-2">
-                                            <h6 class="font-weight-semibold mb-2">
-                                                <a href="#" class="text-default mb-2" data-abc="true"></a>
-                                            </h6>
-
-                                            <a href="#" class="text-muted" data-abc="true"></a>
-                                        </div>
-
-                                        <h3 class="mb-0 font-weight-semibold">Rs210.00</h3>
-
-                                        <div>
-                                           <i class="fa fa-star star"></i>
-                                           <i class="fa fa-star star"></i>
-                                           <i class="fa fa-star star"></i>
-                                           <i class="fa fa-star star"></i>
-                                        </div>
-
-                                        <div class="text-muted mb-3">34 reviews</div>
-
-                                        <button  onclick="addtocart()" type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-
-                                        
-                                    </div>
-                                </div>
-
-
+                    <div class="card-body">
+                        <div class="card-img-actions">
                             
+                            <img src= "{{BASE_DIR}}{{item.image.url}}" class="card-img img-fluid" width="96" height="350" alt="/">
+                            
+                        </div>
+                    </div>
+                    
+                <div class="card-body bg-light text-center">
+                    <div class="mb-2">
+                        <h6 class="font-weight-semibold mb-2">
+                            <a href="#" class="text-default mb-2" data-abc="true">{{item.name}}</a>
+                        </h6>
+                        
+                        <a href="#" class="text-muted" data-abc="true"></a>
+                    </div>
+                    
+                    <h3 class="mb-0 font-weight-semibold">{{item.price}}</h3>
+                    
+                    <div>
+                        <i class="fa fa-star star"></i>
+                        <i class="fa fa-star star"></i>
+                        <i class="fa fa-star star"></i>
+                        
+                                        <i class="fa fa-star star"></i>
+                                     </div>
+
+                                     <div class="text-muted mb-3">34 reviews</div>
+
+                                     <button  onclick="addtocart()" type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+    
+                                </div>
+                            </div>
+                        </div>
+                            {% endfor %}
+                        
+                    </div>
+
+                </div>               
+             <div class="container">
+                
                              
-           </div> 
 
 
-           <div class="col-md-4 mt-2">
+           <!-- <div class="col-md-4 mt-2">
             
                 
                 <div class="card">
@@ -105,14 +104,14 @@
 
                                         
                                     </div>
-                                </div>
+                                </div> -->
 
 
                             
                              
-           </div> 
+            <!-- </div>  -->
 
-           <div class="col-md-4 mt-2">
+           <!-- <div class="col-md-4 mt-2">
             
                 
                 <div class="card">
@@ -141,7 +140,7 @@
                                            <i class="fa fa-star star"></i>
                                            <i class="fa fa-star star"></i>
                                            <!-- <i class="fa fa-star star"></i> -->
-                                        </div>
+                                        <!-- </div>
 
                                         <div class="text-muted mb-3">30 reviews</div>
 
@@ -149,8 +148,8 @@
 
                                         
                                     </div>
-                                </div>           
-           </div> 
+                                </div>             --> -->
+           <!-- </div> 
            <div class="col-md-4 mt-2">
             
                 
@@ -264,7 +263,7 @@
 
                                         
                                     </div>
-                                </div>           
+                                </div>            -->
            </div> 
         </div>
     </div>
