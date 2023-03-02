@@ -4,12 +4,6 @@ from django.contrib import messages
 from .models import product
 
 
-# Create your views here.
-# def index(request):
-#     list=feats.objects.all()
-#     key=1
-#     return render(request,"login.html",{'feature':list,'key':key})
-
 def login(request):
     if request.method=='POST':
         username=request.POST['username']
@@ -51,6 +45,14 @@ def register(request):
 def index ( request):
 
     return render(request,'index.html')
+
+def category(request,value):
+    print(value)
+    # a=product.objects.all()
+    # print(a[0].image)
+    a=product.objects.filter(category=value)
+    return render(request,'category.html',{'objects':a,'category':value.capitalize()})
+
 
 def logout(request):
     auth.logout(request)
