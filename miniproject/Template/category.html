@@ -1,5 +1,4 @@
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,10 +14,11 @@
 </head>
 <body>
     <h1>{{category}} PRODUCTS</h1>
-    <hr>
+     <li class="item"> <a class="link" href="/index" data-abc="true">HOME</a> </li>  
+      <hr>
     <div class="container">
         <div class="row">
-        {% for item in objects %}
+         {% for item in objects %}
         
             <div class="col-md-4 mt-2">  
                 <div class="card">
@@ -39,7 +39,7 @@
                         <a href="#" class="text-muted" data-abc="true"></a>
                     </div>
                     
-                    <h3 class="mb-0 font-weight-semibold">{{item.price}}</h3>
+                    <h3 class="mb-0 font-weight-semibold">Rs{{item.price}}</h3>
                     
                     <div>
                         <i class="fa fa-star star"></i>
@@ -51,7 +51,7 @@
 
                                      <div class="text-muted mb-3">34 reviews</div>
 
-                                     <button  onclick="addtocart()" type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                                     <button value="{{item.id}}" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
     
                                 </div>
                             </div>
@@ -70,11 +70,6 @@
            </div> 
         </div>
     </div>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
-<script >
-    function addtocart(){
-        window.location.href=window.location.href.toString()+"shoppage"
-    }
-
-</script>
 </html>

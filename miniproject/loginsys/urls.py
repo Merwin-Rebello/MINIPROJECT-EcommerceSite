@@ -6,5 +6,8 @@ urlpatterns=[
     path('login',views.login,name="login"),
     path('register',views.register,name="register"),
     path('category/<str:value>',views.category,name="dairy"),
-    path('logout',views.logout,name='logout')
+    path('logout',views.logout,name='logout'),
+    path('index',views.home,name="home"), 
+    path('add_to_cart',views.add_to_cart,name="add"),
+    path("cart", views.cart, name="cart"),
 ]

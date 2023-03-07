@@ -1,11 +1,14 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from .models import product
-
+from .models import product, Cart, Cartitem
+from django.http import JsonResponse
+import json
+from django.contrib.auth.decorators import login_required
+# from cart.cart import Cart
 
 def login(request):
-    if request.method=='POST':
+    if request.method=='POST': 
         username=request.POST['username']
         password=request.POST['password']
         user=auth.authenticate(username=username,password=password)
@@ -43,17 +46,55 @@ def register(request):
     return render(request,'register.html')
 
 def index ( request):
+    
+    if request.user.is_authenticated:
+        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
+        
+    context = {"products":product, "cart": cart}
+    return render(request,'index.html',context)
 
+def home(request):
     return render(request,'index.html')
 
 def category(request,value):
     print(value)
-    # a=product.objects.all()
-    # print(a[0].image)
     a=product.objects.filter(category=value)
+    context = {"products":a, "cart": cart}
     return render(request,'category.html',{'objects':a,'category':value.capitalize()})
 
 
 def logout(request):
     auth.logout(request)
     return render(request,'index.html')
+
+def carthome(request):
+    return render(request,'index.html')
+
+def cart(request):
+
+    cart = None
+    cartitems = []
+
+    if request.user.is_authenticated:
+        cart,created=Cart.objects.get_or_create(user=request.user,completed=False)
+        cartitems = cart.cartitems.all()
+
+         
+    context = {"cart":cart, "items":cartitems}
+    return render(request,'cart.html',context)
+
+
+def add_to_cart(request):
+    data= json.loads(request.body)
+    product_id= data["id"]
+    product1= product.objects.get(id=product_id)
+    
+    if request.user.is_authenticated:
+        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
+        print(cart)
+        cartitem, created =Cartitem.objects.get_or_create(cart=cart, product=product1)
+        cartitem.quantity += 1
+        cartitem.save()
+        print(cartitem)
+    return JsonResponse("it is working upp",safe=False)
+

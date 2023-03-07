@@ -13,8 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-
+{% csrf_token %}
     <header class="section-header">
         <section class="header-main border-bottom">
             <div class="container-fluid">
@@ -22,20 +23,17 @@
                     <div class="col-lg-3 col-sm-4 col-md-4 col-5"> <a href="#" class="brand-wrap" data-abc="true">
                             <!-- <img class="logo" src="http://ampexamples.com/data/upload/2017/08/bootstrap2_logo.png"> --> <span class="logo">Welcome {% if user.is_authenticated %}{{name}}{% endif %}</span> </a> </div>
                     <div class="col-lg-4 col-xl-5 col-sm-8 col-md-4 d-none d-md-block">
-                        <!-- <form action="#" class="search-wrap">
-                            <div class="input-group w-100"> <input type="text" class="form-control search-form" style="width:55%;" placeholder="Search">
-                                <div class="input-group-append"> <button class="btn btn-primary search-button" type="submit"> <i class="fa fa-search"></i> </button> </div>
-                            </div>
-                        </form> -->
+                    
                     </div>
                     <div class="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-7">
                         <div class="d-flex justify-content-end">
-                             <a target="_blank" href="#" data-abc="true" class="nav-link widget-header"> <i class="bi bi-cart"></i></a>
+                            
+                             <a  href="cart" data-abc="true" class="nav-link widget-header"> <i class="bi bi-cart"></i>
                                  
-                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" id="cartpic" class="bi bi-cart" viewBox="0 0 16 16">
-                                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                                 </svg>
-                                 
+                             <span id="num_of_items"class="material-symbols-outlined">
+                                shopping_cart <span>{{cart.num_of_items}}</span>
+                                </span>
+                            </a>
             
                            <span class="vl"></span>
                             <div class="dropdown btn-group"> <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-abc="true"><i class="fas fa fa-bell"></i></a>
@@ -60,7 +58,7 @@
                                 {% if user.is_authenticated %}
                                 <a class="nav-link nav-user-img" href="logout" data-toggle="modal" data-target="#login-modal" data-abc="true"><span class="login">LOGOUT</span></a>
                                 {% else %}
-                            </div> <span class="vl"></span> <a class="nav-link nav-user-img" href="/login" data-toggle="modal" data-target="#login-modal" data-abc="true"><span class="login">LOGIN</span></a>
+                            </div> <span class="vl"></span> <a class="nav-link nav-user-img" href="login" data-toggle="modal" data-target="#login-modal" data-abc="true"><span class="login">LOGIN</span></a>
                                 {% endif %}
                         </div>
                     </div>
@@ -80,8 +78,7 @@
                             <div class="dropdown-menu"> <a class="dropdown-item" href="" data-abc="true">Lenovo</a> <a class="dropdown-item" href="" data-abc="true">Dell</a> <a class="dropdown-item" href="" data-abc="true">HP</a> <a class="dropdown-item" href="" data-abc="true">Apple</a> </div>
                         </li> -->
                         <li class="nav-item"> <a class="nav-link" href="index" data-abc="true">HOME</a> </li>
-                        <li class="nav-item"> <a class="nav-link" href="shoppage" data-abc="true">SHOP</a> </li>
-                        <!-- <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Blog</a> </li> -->
+                        <li class="nav-item"> <a class="nav-link"id="num_of_items" href="cart" data-abc="true">SHOP(<span>{{cart.num_of_items}}</span>)</a></li>
                         <li class="nav-item"> <a class="nav-link" href="contact" data-abc="true">Contact</a> </li>
                     </ul>
                 </div>
@@ -105,6 +102,7 @@
         </div>
         </div> 
     </div>
+    {% block body %}       
     <section id="sidebar">
         <div>
             <h6 class="p-1 border-bottom">ALL DEPARTMENTS</h6>
@@ -116,10 +114,10 @@
                 <li><a href="category/fruitsveg">Fruits&Veg</a></li>
             </ul>
         </div>
-
-    </section>
+ </section>
+ 
     <section id="products">
-    <div class="container">
+     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-sm-4 col-11 offset-sm-0 offset-1">
                 <div class="card">
@@ -206,8 +204,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
     </section>
+{% endblock %}
+
 
 
 <section>
@@ -257,11 +257,6 @@
 
 </footer>
 </section>
+<script src="{% static 'js/script.js' %}"></script>
 </body>
-<script >
-    function addtocart(){
-        window.location.href="http://127.0.0.1:5555/shopspage/shoppage.html"
-    }
-
-</script>
 </html>
