@@ -5,6 +5,10 @@ from .models import product, Cart, Cartitem
 from django.http import JsonResponse
 import json
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.views.generic.base import TemplateView
+import stripe
+stripe.api_key = settings.STRIPE_SECRET_KEY
 # from cart.cart import Cart
 
 def login(request):
@@ -97,4 +101,22 @@ def add_to_cart(request):
         cartitem.save()
         print(cartitem)
     return JsonResponse("it is working upp",safe=False)
+
+class indexview(TemplateView):
+    template_name='index.html'
+
+    def get_context_data(self, **kwargs):
+      context= super().get_context_data(**kwargs)
+      context['key'] = settings.STRIPE_PUBLISHABLE_KEY
+      return context
+
+def charge(request):
+    if request.method == 'POST':
+        charge = stripe.Charge.create(
+            amount=500,
+            currency='inr',
+            description='Payment gateway',
+            source=request.POST['stripeToken']
+        )
+    return render(request,'charge.html')
 

@@ -66,16 +66,22 @@
             </td>
           </tfoot>
         </div>
-          
-
-            
-                 
+    </div>
+      <form action="{% url 'charge' %}" method="post">
+        <h1>Buy for 5.00Rs</h1>
+        {% csrf_token %}
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="{{ key }}"
+        data-description="Payment gateway"
+        data-amount="500"
+        data-locale="auto">
+    </script>
+    </form>
     
-     
-         
-            
-        </div>
-        
+
+
+
+
  </section> 
  
 {% endblock %}

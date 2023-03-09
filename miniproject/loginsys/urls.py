@@ -10,4 +10,5 @@ urlpatterns=[
     path('index',views.home,name="home"), 
     path('add_to_cart',views.add_to_cart,name="add"),
     path("cart", views.cart, name="cart"),
+    path('charge', views.charge, name='charge'),
 ]
