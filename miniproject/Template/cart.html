@@ -62,14 +62,26 @@
                 
             </td>
             <td>
-               <h3>GRAND TOTAL:<p>{{cart.total_price}}</p> </h3> 
+                <div style="display:flex;
+                            height:150px;
+                            width:fit-content;
+                            float:right;
+                            border-color: 2px solid black;"><h3 >GRAND TOTAL:<p>{{cart.total_price}}</p> </h3> </div>
+               
             </td>
           </tfoot>
         </div>
     </div>
 
-    <div class="payment_checkout">
-        <button id ="paycheckout" href="">Click to pay</button>
+    <div class="payment_checkout" >
+        <button id ="paycheckout" style="display:flex;
+                                        height: fit-content;
+                                        width: fit-content;
+                                        background-color:rgb(190, 215, 246);
+                                        color:black;
+                                        float:right;
+                                        margin-right:200px;
+                                        padding:10px;"href="">Click to pay</button>
     </div>
 
 

@@ -19,7 +19,8 @@ def login(request):
         user=auth.authenticate(username=username,password=password)
         if user is not None:
             auth.login(request,user)
-            return render(request,'index.html',{'name':username})
+            a=product.objects.filter(category="featuredindex")
+            return render(request,'index.html',{'name':username,'objects':a})
         else:
             return render(request,'login.html',{'text':' SORRRY!! cannot login'})
     return render(request,'login.html')
@@ -44,10 +45,11 @@ def register(request):
                 user.save()
                 user1=auth.authenticate(username=username,password=password)
                 auth.login(request,user1)
-                return render(request,'index.html',{'name':username})
+                a=product.objects.filter(category="featuredindex")
+                return render(request,'index.html',{'name':username,'objects':a})
         else:
             messages.info(request,'Password Not Same')
-            return redirect('index')
+            return redirect('register')
     return render(request,'register.html')
 
 def index (request):
@@ -55,25 +57,24 @@ def index (request):
     a=product.objects.filter(category="featuredindex")
     if request.user.is_authenticated:
         cart, created = Cart.objects.get_or_create(user=request.user, completed=False)    
-    context = {"products":product, "cart": cart}
-    return render(request,'index.html',{'objects':a,'category':"featuredindex".capitalize()})
+    # context = {"products":product, "cart": cart}
+    return render(request,'index.html',{'objects':a})
 
 def home(request):
-    return render(request,'index.html')
+    return redirect('index')
 
 def category(request,value):
-    print(value)
     a=product.objects.filter(category=value)
-    context = {"products":a, "cart": cart}
-    return render(request,'category.html',context,{'objects':a,'category':value.capitalize()})
+    context = {"products":a, "cart": cart,'objects':a,'category':value.capitalize()}
+    return render(request,'category.html',context)
 
 
 def logout(request):
     auth.logout(request)
-    return render(request,'index.html')
+    return redirect('index')
 
 def carthome(request):
-    return render(request,'index.html')
+    return redirect('index')
 
 def cart(request):
 
