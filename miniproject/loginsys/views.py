@@ -5,10 +5,11 @@ from .models import product, Cart, Cartitem
 from django.http import JsonResponse
 import json
 from django.contrib.auth.decorators import login_required
-from django.conf import settings
-from django.views.generic.base import TemplateView
-import stripe
-stripe.api_key = settings.STRIPE_SECRET_KEY
+# from django.conf import settings
+# from django.views.generic.base import TemplateView
+from .models import *
+# import stripe
+# stripe.api_key = settings.STRIPE_SECRET_KEY
 # from cart.cart import Cart
 
 def login(request):
@@ -49,13 +50,13 @@ def register(request):
             return redirect('index')
     return render(request,'register.html')
 
-def index ( request):
+def index (request):
     
+    a=product.objects.filter(category="featuredindex")
     if request.user.is_authenticated:
-        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)
-        
+        cart, created = Cart.objects.get_or_create(user=request.user, completed=False)    
     context = {"products":product, "cart": cart}
-    return render(request,'index.html',context)
+    return render(request,'index.html',{'objects':a,'category':"featuredindex".capitalize()})
 
 def home(request):
     return render(request,'index.html')
@@ -64,7 +65,7 @@ def category(request,value):
     print(value)
     a=product.objects.filter(category=value)
     context = {"products":a, "cart": cart}
-    return render(request,'category.html',{'objects':a,'category':value.capitalize()})
+    return render(request,'category.html',context,{'objects':a,'category':value.capitalize()})
 
 
 def logout(request):
@@ -99,24 +100,35 @@ def add_to_cart(request):
         cartitem, created =Cartitem.objects.get_or_create(cart=cart, product=product1)
         cartitem.quantity += 1
         cartitem.save()
+
+        num_of_item = cart.num_of_items
+
         print(cartitem)
-    return JsonResponse("it is working upp",safe=False)
+        
+    return JsonResponse(num_of_item,safe=False)
 
-class indexview(TemplateView):
-    template_name='index.html'
+# class indexview(TemplateView):
+#     template_name='index.html'
 
-    def get_context_data(self, **kwargs):
-      context= super().get_context_data(**kwargs)
-      context['key'] = settings.STRIPE_PUBLISHABLE_KEY
-      return context
+#     def get_context_data(self, **kwargs):
+#       context= super().get_context_data(**kwargs)
+#       context['key'] = settings.STRIPE_PUBLISHABLE_KEY
+#       return context
 
-def charge(request):
-    if request.method == 'POST':
-        charge = stripe.Charge.create(
-            amount=500,
-            currency='inr',
-            description='Payment gateway',
-            source=request.POST['stripeToken']
-        )
-    return render(request,'charge.html')
+# def charge(request):
+#     if request.method == 'POST':
+#             charge = stripe.Charge.create(
+#             amount=500,
+#             currency='inr',
+#             description='Payment gateway',
+#             source=request.POST['stripeToken']
+#         )
+#     return render(request,'charge.html')
 
+def delete_item(request, id):
+    cart = Cart.objects.get(id)
+    cart.quantity -=1
+    #cart.completed = True
+    cart.save()
+    #messages.success(request, "Payment made successfully")
+    return redirect("cart.html")

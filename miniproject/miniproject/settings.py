@@ -128,8 +128,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
-STRIPE_SECRET_KEY='sk_test_51MjkWrSEXTjpvpBjp4H3l39jKpNQ3ePxMXZm1l1EbuJjmIk1vvlUno2V9Kn4rgYAzl2P52qvRVrfxS2wiE4sc5eo00TxNiNj3A'
-STRIPE_PUBLISHABLE_KEY='pk_test_51MjkWrSEXTjpvpBjWJq4EixGkE7synjNvnBfhBIlyD1djBw8kITAHQxEbISMrFQZkuaIq31ZPbc3A63JtGjbgCSY00XYC9rMdg'
+#STRIPE_SECRET_KEY='sk_test_51MjkWrSEXTjpvpBjp4H3l39jKpNQ3ePxMXZm1l1EbuJjmIk1vvlUno2V9Kn4rgYAzl2P52qvRVrfxS2wiE4sc5eo00TxNiNj3A'
+#STRIPE_PUBLISHABLE_KEY='pk_test_51MjkWrSEXTjpvpBjWJq4EixGkE7synjNvnBfhBIlyD1djBw8kITAHQxEbISMrFQZkuaIq31ZPbc3A63JtGjbgCSY00XYC9rMdg'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
