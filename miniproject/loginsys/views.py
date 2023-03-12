@@ -108,28 +108,21 @@ def add_to_cart(request):
         
     return JsonResponse(num_of_item,safe=False)
 
-# class indexview(TemplateView):
-#     template_name='index.html'
 
-#     def get_context_data(self, **kwargs):
-#       context= super().get_context_data(**kwargs)
-#       context['key'] = settings.STRIPE_PUBLISHABLE_KEY
-#       return context
-
-# def charge(request):
-#     if request.method == 'POST':
-#             charge = stripe.Charge.create(
-#             amount=500,
-#             currency='inr',
-#             description='Payment gateway',
-#             source=request.POST['stripeToken']
-#         )
-#     return render(request,'charge.html')
 
 def delete_item(request, id):
+    data= json.loads(request.body)
+    product_id= data["id"]
     cart = Cart.objects.get(id)
     cart.quantity -=1
     #cart.completed = True
     cart.save()
     #messages.success(request, "Payment made successfully")
     return redirect("cart.html")
+
+def deleteproduct(request,value):
+    prod = Cartitem.objects.filter(id=value)
+    prod.delete()
+    messages.success(request,"Product deleted sucessfully")
+    
+    return redirect("cart")
