@@ -1,0 +1,76 @@
+.checkout{
+    background-color: beige;
+    width: fit-content;
+    margin: auto;
+}
+.container{
+    margin: auto;
+    width: fit-content;
+    height: max-content;
+    border: 2px solid black;
+    padding: 25px;
+    margin-top: 6%;
+    border-radius: 15px;
+}
+#name{
+    padding-top: 7px;
+    padding-bottom: 5px;
+}
+#email{
+    margin-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;  
+}
+#address{
+    margin-top: 10px;
+    padding-bottom: 5px; 
+    padding-top: 5px;
+    width: fit-content;
+}
+
+#phoneno{
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px; 
+}
+#country{
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;  
+}
+#zip-code{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 10px; 
+}
+#card_name{
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-left: 7px;
+    margin-top: 10px;
+}
+#expiration{
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px; 
+}
+#cvv{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 10px;
+}
+#process_to_pay{
+    margin-top: 15px;
+    width:250px;
+    height: 35px;
+    margin-left: 105px;
+    background-color: blue;
+    color: white;
+    border-radius: 15px;
+}
+#cardnumber{
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-left: 7px;
+    margin-top: 10px;   
+}

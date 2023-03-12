@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkoutpage</title>
+    <link rel="stylesheet" href="../static/checkoutpage.css">
+</head>
+
+<body>
+    <h2>Enter your details</h2>
+    <div class="checkout">
+        <div class="container">
+            <form>
+                <label> NAME:</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" placeholder="Enter valid email id">
+                <div>
+                    <label for="address">ADDRESS:</label>
+                    <input type="text" id="address" class="form-control" placeholder="Enter your valid address">
+                </div>
+                <div>
+                    <label for="phone number">Phone number:</label>
+                    <input type="text" id="phoneno" placeholder="Enter your valid phone number">
+                </div>
+                <div>
+                    <label for="country">Country:</label>
+                    <input type="text" id="country">
+                    <label for="zipcode">Zip-code:</label>
+                    <input type="text" id="zip-code">
+                </div>
+                <hr>
+                <h5>Payment-Details</h5>
+
+                <div class="payment_method">
+
+                    <h3>Card details</h3>
+                </div>
+                <hr>
+                <div class="card-details">
+                    <label for="card_name">Enter Name</label>
+                    <input type="text" id="card_name" placeholder="Enter Name As In Your Card">
+                </div>
+                <div>
+                    <label for="cardnumber">Card Number</label>
+                    <input type="text" id="cardnumber"placeholder="Enter card number">
+                </div>
+                <div>
+                    <label for="expiry">Expiration</label>
+                    <input type="text" class="cardnum" id="expiration" placeholder="">
+                    <label for="cvv">CVV</label>
+                    <input type="text" class="cardnum" id="cvv" placeholder="">
+                </div>
+
+            </form>
+                   <div class="payment">
+                    <button id="process_to_pay">CLICK TO PAY</button>
+                   </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
