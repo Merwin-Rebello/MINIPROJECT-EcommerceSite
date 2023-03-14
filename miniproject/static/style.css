@@ -70,8 +70,12 @@ body {
 }
 
 .navbar-main {
-    background-color: #fff
+    background-color: #007bff;
 }
+.navbar-main a{
+    color: #fff;
+}
+
 
 .navbar-toggler {
     color: rgba(0, 0, 0, 0.5);
@@ -127,12 +131,12 @@ body {
 
 .nav-link {
     text-transform: uppercase;
-    font-weight: 400
+    font-weight: 400;
 }
 
 .vl {
     border-left: 1px solid #fff;
-    height: 100%
+    height: 100%;
 }
 
 .fas {
