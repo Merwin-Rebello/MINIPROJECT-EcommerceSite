@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,11 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>checkoutpage</title>
-    <link rel="stylesheet" href="../static/checkoutpage.css">
+    <link rel="stylesheet" href="{% static 'checkoutpage.css' %}">
+    <link href="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{% static 'js/checkout.js' %}"></script>
 </head>
 
 <body>
-    <h2>Enter your details</h2>
+    <!-- <h2>Enter your details</h2>
     <div class="checkout">
         <div class="container">
             <form>
@@ -61,8 +64,106 @@
                    </div>
 
         </div>
-    </div>
+    </div> -->
 
+
+
+    <div class="container">
+        <div class="card">
+            <div class="payment-details">
+                <h3>Payment Details</h3>
+                <p>Complete your purchase by providing your payment details.</p>
+            </div>
+            <div class="input-text">
+                <input type="text" placeholder="luke@skywalker.com">
+                <span>Email</span>
+            </div>
+            <div class="input-text">
+                <input type="text"  placeholder="0000 0000 0000 0000" data-slots="0" data-accept="\d" >
+                <span>Card Details</span>
+            </div>
+            <div class="input-text-cvv">
+                <input type="text" placeholder="mm/yyyy" data-slots="my">
+                <!--<span>Card Details</span>-->
+            </div>
+             <div class="input-text-cvv cvv">
+                <input type="text" placeholder="000" data-slots="0" data-accept="\d" size="3" >
+                <!--<span>Card Details</span>-->
+            </div>
+            <div class="input-text">
+                <input type="text" placeholder="Username">
+                <span>Card Holder name</span>
+            </div>
+            <div class="billing">
+                <span>Billing Address</span>
+                <select>
+                    <option>Select Country</option>
+                    <option>United States</option>
+                    <option>India</option>
+
+                </select>
+                <div class="zip-state">
+                    <div class="zip">
+                        <input type="text" placeholder="ZIP">
+                    </div>
+                    <div class="state">
+                        <select>
+                               <option>Select State</option>
+                               <option>Maharashtra</option>
+                               <option>New Delhi</option>
+                               <option>Kerela</option>
+                               <option>Odisha</option>
+                               <option>Gujarat</option>
+                               <option>Goa</option>
+                               <option>Karnataka</option>
+
+                        </select>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- <div class="input-text">
+                <input type="text" placeholder="BLACKWEDNESDAY">
+                <span>Discount code</span>
+            </div> -->
+            <div class="summary">
+                <div class="text-data">
+                    <h5>Total</h5>
+                </div>
+                <div class="numerical-data">
+                    
+
+                    <h5><p>{{cart.total_price}}</p></h5>
+                </div>
+            </div>
+            <div id="payment"  class="pay">
+                <button onclick ="payment()">Pay</button>
+            </div>
+            <div class="secure">
+                <i class="fa fa-lock"></i>
+                <p> Payments are secured and encrypted</p>
+            </div>
+            
+        </div>
+        
+    </div>
 </body>
+<script>
+    function payment(){
+
+        if (window.confirm('Are you sure u want to pay'))
+        {
+            alert('payment done');
+            window.location = '/';
+        }
+        else
+        {
+            die();
+        } 
+        
+        
+    }
+</script>
 
 </html>

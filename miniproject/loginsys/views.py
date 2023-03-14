@@ -126,3 +126,7 @@ def deleteproduct(request,value):
     messages.success(request,"Product deleted sucessfully")
     
     return redirect("cart")
+
+
+def checkoutpage(request):
+    return render(request,"checkoutpage.html")    
