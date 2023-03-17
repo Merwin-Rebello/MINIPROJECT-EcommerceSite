@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkoutpage</title>
+    <link rel="stylesheet" href="{% static 'checkoutpage.css' %}">
+    <link href="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{% static 'js/checkout.js' %}"></script>
+</head>
+
+<body>
+    <!-- <h2>Enter your details</h2>
+    <div class="checkout">
+        <div class="container">
+            <form>
+                <label> NAME:</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" placeholder="Enter valid email id">
+                <div>
+                    <label for="address">ADDRESS:</label>
+                    <input type="text" id="address" class="form-control" placeholder="Enter your valid address">
+                </div>
+                <div>
+                    <label for="phone number">Phone number:</label>
+                    <input type="text" id="phoneno" placeholder="Enter your valid phone number">
+                </div>
+                <div>
+                    <label for="country">Country:</label>
+                    <input type="text" id="country">
+                    <label for="zipcode">Zip-code:</label>
+                    <input type="text" id="zip-code">
+                </div>
+                <hr>
+                <h5>Payment-Details</h5>
+
+                <div class="payment_method">
+
+                    <h3>Card details</h3>
+                </div>
+                <hr>
+                <div class="card-details">
+                    <label for="card_name">Enter Name</label>
+                    <input type="text" id="card_name" placeholder="Enter Name As In Your Card">
+                </div>
+                <div>
+                    <label for="cardnumber">Card Number</label>
+                    <input type="text" id="cardnumber"placeholder="Enter card number">
+                </div>
+                <div>
+                    <label for="expiry">Expiration</label>
+                    <input type="text" class="cardnum" id="expiration" placeholder="">
+                    <label for="cvv">CVV</label>
+                    <input type="text" class="cardnum" id="cvv" placeholder="">
+                </div>
+
+            </form>
+                   <div class="payment">
+                    <button id="process_to_pay">CLICK TO PAY</button>
+                   </div>
+
+        </div>
+    </div> -->
+
+
+
+    <div class="container">
+        <div class="card">
+            <div class="payment-details">
+                <h3>Payment Details</h3>
+                <p>Complete your purchase by providing your payment details.</p>
+            </div>
+            <div class="input-text">
+                <input type="text" placeholder="luke@skywalker.com">
+                <span>Email</span>
+            </div>
+            <div class="input-text">
+                <input type="text"  placeholder="0000 0000 0000 0000" data-slots="0" data-accept="\d" >
+                <span>Card Details</span>
+            </div>
+            <div class="input-text-cvv">
+                <input type="text" placeholder="mm/yyyy" data-slots="my">
+                <!--<span>Card Details</span>-->
+            </div>
+             <div class="input-text-cvv cvv">
+                <input type="text" placeholder="000" data-slots="0" data-accept="\d" size="3" >
+                <!--<span>Card Details</span>-->
+            </div>
+            <div class="input-text">
+                <input type="text" placeholder="Username">
+                <span>Card Holder name</span>
+            </div>
+            <div class="billing">
+                <span>Billing Address</span>
+                <select>
+                    <option>Select Country</option>
+                    <option>United States</option>
+                    <option>India</option>
+
+                </select>
+                <div class="zip-state">
+                    <div class="zip">
+                        <input type="text" placeholder="ZIP">
+                    </div>
+                    <div class="state">
+                        <select>
+                               <option>Select State</option>
+                               <option>Maharashtra</option>
+                               <option>New Delhi</option>
+                               <option>Kerela</option>
+                               <option>Odisha</option>
+                               <option>Gujarat</option>
+                               <option>Goa</option>
+                               <option>Karnataka</option>
+
+                        </select>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- <div class="input-text">
+                <input type="text" placeholder="BLACKWEDNESDAY">
+                <span>Discount code</span>
+            </div> -->
+            <div class="summary">
+                <div class="text-data">
+                    <h5>Total</h5>
+                </div>
+                <div class="numerical-data">
+                    
+
+                    <h5><p>Rs.330.00{{cart.total_price}}</p></h5>
+                </div>
+            </div>
+            <div id="payment"  class="pay">
+                <button onclick ="payment()">Pay</button>
+            </div>
+            <div class="secure">
+                <i class="fa fa-lock"></i>
+                <p> Payments are secured and encrypted</p>
+            </div>
+            
+        </div>
+        
+    </div>
+</body>
+<script>
+    function payment(){
+
+        if (window.confirm('Are you sure u want to finish proces'))
+        {
+            alert('payment done');
+            window.location = '/';
+        }
+        else
+        {
+            die();
+        } 
+        
+        
+    }
+</script>
+
+</html>

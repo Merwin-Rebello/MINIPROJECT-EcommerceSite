@@ -1,0 +1,94 @@
+{% extends 'index.html' %}
+{% block body %} 
+
+ <div class="shoppingCart">
+  <h2>My Cart</h2>
+
+ 
+ <section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+              <li><a href="/">Home</a></li>
+            </ol>
+        </div>
+        <div class="table-responsive cart_info">
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Item</td>
+                        <td class="description">Name</td>
+                        <td class="price">Price</td>
+                        <td class="quantity">Quantity</td>
+                        <td class="total">Total</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                  {% for item in items %}
+                    <tr>
+                        <td class="cart_product">
+                            <a href=""><img src="{{item.product.image.url}}" height="100px" width="150px" alt=""></a>
+                        </td>
+                        <td class="cart_description">
+                            <h4><a href="">{{item.product.name}}</a></h4>
+                        </td>
+                        <td class="cart_price">
+                            <p>Rs{{item.product.price}}</p>
+                        </td>
+                        <td class="cart_quantity">
+                            
+                                <!-- <a class="cart_quantity_up" href=""> + </a> -->
+                                <div class="name"><p>{{item.quantity}}</p></div>
+                                <!-- <a class="cart_quantity_down" href=""> - </a> -->
+                            
+                        </td>
+                        <td class="cart_total">
+                            <p class="cart_total_price">{{item.price}}</p>
+                        </td>
+                        <td class="cart_delete">
+                            <a class="cart_quantity_delete" href="{% url 'delete-prod' item.id %}"><i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>  
+                    {% endfor %}    
+
+
+                                 
+                </tbody>
+            </table>
+          <tfoot>
+            <td>
+
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                <div style="display:flex;
+                            height:150px;
+                            width:fit-content;
+                            float:right;
+                            border-color: 2px solid black;"><h3 >GRAND TOTAL:<p>{{cart.total_price}}</p> </h3> </div>
+               
+            </td>
+          </tfoot>
+        </div>
+    </div>
+
+    <div class="payment_checkout" >
+        <a id ="paycheckout" style="display:flex;
+                                        height: fit-content;
+                                        width: fit-content;
+                                        background-color:rgb(190, 215, 246);
+                                        color:black;
+                                        float:right;
+                                        margin-right:200px;
+                                        padding:10px;" href="{% url 'checkoutpage' %}">Click to pay</a>
+    </div>
+
+
+
+
+ </section> 
+ 
+{% endblock %}
