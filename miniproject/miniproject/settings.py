@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'loginsys',
     'debug_toolbar',
-    
+    'import_export',
 ]
 
 MIDDLEWARE = [

@@ -6,7 +6,7 @@ body {
     position: relative;
     padding-top: 7px;
     padding-bottom: 7px;
-    background-color: #007bff
+    background-color: #76b1f0
 }
 
 .logo {
@@ -64,17 +64,23 @@ body {
 }
 
 .search-button {
-    color: #007bff;
+    color: #c6dcf4;
     background-color: #ffffff;
     border-color: #ffffff
 }
 
 .navbar-main {
-    background-color: #007bff;
+    background-color: #67a9ef;
 }
-.navbar-main a{
-    color: #fff;
+
+.navbar-main{
+    background: #4296f0;
 }
+#extended-nav{
+    background-color: #67a9ef;
+}
+
+
 
 
 .navbar-toggler {
@@ -185,7 +191,7 @@ li a:hover{
     color: rgb(69, 129, 129);
 }
 #blue{
-    color: #0000ff;
+    color: #8d8df1;
 }
 .card{
     width: 250px;
@@ -243,6 +249,9 @@ li a:hover{
     }
     .nav-item{
         padding-left: 10px;
+    }
+    .navbar-main{
+        background-color: #76b1f0;
     }
     .card{
         width: 230px;

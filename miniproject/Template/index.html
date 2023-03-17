@@ -40,7 +40,7 @@
 
                         {% if user.is_superuser %}
 
-                        <a class="navbar-main " href="#"> DASHBOARD</a>
+                        <a class="nav-link nav-user-img" href="#">DASHBOARD</a>
 
                         {% endif %}
                         <span class="vl"></span>
@@ -83,7 +83,7 @@
             </div>
         </div>
     </section>
-    <nav class="navbar navbar-expand-md navbar-main border-bottom">
+    <nav class="navbar navbar-expand-md navbar-main border-bottom" id="extended-nav" style="background-color:rgb(216, 213, 213);border-radius:5px;">
         <div class="container-fluid">
             <form class="d-md-none my-2">
                 <div class="input-group"> <input type="search" name="search" class="form-control" placeholder="Search"
@@ -101,7 +101,7 @@
                         </li> -->
                     <li class="nav-item"> <a class="nav-link" href="index" data-abc="true">HOME</a> </li>
                     <li class="nav-item"> <a class="nav-link" id="num_of_items" href="cart"
-                            data-abc="true">SHOP({{cart.num_of_items}})</a></li>
+                            data-abc="true">SHOP{{cart.num_of_items}}</a></li>
                     <li class="nav-item"> <a class="nav-link" href="contact" data-abc="true">Contact</a> </li>
                 </ul>
             </div>
