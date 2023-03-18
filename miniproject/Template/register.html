@@ -24,32 +24,44 @@
     <h1 style="color:red">{{error}}</h1>
     {% endif %}
     <hr>
-    <form class="form-subscribe" id="contactFormFooter" method="post" action="register">
+    <form class="form-subscribe" id="contactFormFooter" method="post" action="register"  style="margin-left:550px;
+                                                                                                border:2px solid black;
+                                                                                                width: 450px;
+                                                                                                border-radius:10px;">
         {% csrf_token %}
         <!-- Email address input-->
-        <div class="row gy-3">
-            <div class="col-12">
-                <input class="form-control form-control-lg" id="nameBelow" type="text"
-                    placeholder="UserName" data-sb-validations="required,name" name="username" />
+        <div class="row gy-3"style="margin:auto" >
+            <div class="col-12" >
+                
+              <label for="username">UserName:</label> 
+               <input class="form-control form-control-lg" id="nameBelow" type="text"
+                    placeholder="UserName" data-sb-validations="required,name" name="username" style="width:fit-content;
+                                                                                                     margin-left:100px"   />
                 <div class="invalid-feedback text-white" data-sb-feedback="nameBelow:required">
                     Username is required.</div>
             </div>
-            <div class="col-12">
+            <div class="col-12" >
+                <label for="email">EMAIL:</label>
                 <input class="form-control form-control-lg" id="emailAddressBelow" type="email"
-                    placeholder="Email Address" data-sb-validations="required,email" name="email" />
+                    placeholder="Email Address" data-sb-validations="required,email" name="email" style="width:fit-content;
+                                                                                                         margin-left:100px"/>
                 <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:required">
                     Email Address is required.</div>
             </div>
             <div class="col-12">
+                <label for="password">ENTER PASSWORD:</label>
                 <input class="form-control form-control-lg" type="password" placeholder="password"
-                    name="password" />
+                    name="password" style="width:fit-content;
+                                           margin-left:100px"/>
             </div>
             <div class="col-12">
+                <label for="password">RE-ENTER PASSWORD:</label>
                 <input class="form-control form-control-lg" type="password"
-                    placeholder="repeat password" name="password2" />
+                    placeholder="repeat password" name="password2"style="width:fit-content;
+                                                                         margin-left:100px"  />
             </div>
-            <div class="col-auto"><button class="btn btn-primary btn-lg" id="submitButton"
-                    type="submit">Submit</button></div>
+            <div class="col-auto "style= "margin-left:130px;margin-bottom:5px "><button class="btn btn-primary btn-lg" id="submitButton"
+                    type="submit" style="padding-left:50px; padding-right:50px">Submit</button></div>
         </div>
         <!-- Submit success message-->
         <!---->
