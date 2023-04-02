@@ -129,4 +129,7 @@ def deleteproduct(request,value):
 
 
 def checkoutpage(request):
-    return render(request,"checkoutpage.html")    
+    return render(request,"checkoutpage.html") 
+
+def contact(request):
+    return render(request,"contact.html")       
