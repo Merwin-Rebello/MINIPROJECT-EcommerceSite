@@ -39,7 +39,7 @@ The prediction made will help small businesses to grow and and also help them kn
 ![image](https://github.com/Merwin-Rebello/MINIPROJECT/assets/110761387/bb9f087a-d1a8-4e50-83ff-170ade7cf07a)
 
 ## Languages 
-1. DJANGO (OVERALL MAIN LANGUAGE)
+1. DJANGO (OVERALL MAIN FAMEWORK)
 2. JAVASCRIPT
 3. HTML,CSS
 ### Contributers
