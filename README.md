@@ -10,7 +10,7 @@
 4. Than only the admin can view the dashboard which contains all the analytics.
 
 ## Prediction
-The prediction is based on the data which was recieved from the website where we team members did fake purchases and generated and EXCEl sheet and  was give to 
+The prediction is based on the data which was recieved from the website where we team members did fake purchases and generated and EXCEL sheet and  was give to 
 our prediction modal which gave us the graphs and in which the orange line is the predicted sales based on the quantity... 
   
 ## Main Motive (scope)
