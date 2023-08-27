@@ -42,10 +42,10 @@ The prediction made will help small businesses to grow and and also help them kn
 1. DJANGO (OVERALL MAIN FAMEWORK)
 2. JAVASCRIPT
 3. HTML,CSS
-### Contributers
+### Team Members
 
-1. Merwin Rebello
-2. Noel Sangle 
+1. Merwin Rebello(Developer)
+2. Noel Sangle (Machine Learning)
 3. Shubham Keluskar
 
 #### Acknowledgement 
